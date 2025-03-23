@@ -29,18 +29,31 @@ function isPangram(sentence) {
 // test cases
 function runTests() {
     const testCases = [
-        { input: "The quick brown fox jumps over the lazy dog.", expected: "It is a pangram." },
-        { input: "Sphinx of black quartz, judge my vow.", expected: "It is a pangram." },
-        { input: "Hello, World!", expected: "It is NOT a pangram." },
-        { input: "Pack my box with five dozen liquor jugs.", expected: "It is a pangram." },
-        { input: "abcdefghijklmnopqrstuvwxyz", expected: "It is a pangram." },
-        { input: "Missing letters abcdefghijklmnopqrstuvwxy", expected: "It is NOT a pangram." }
+        { input: "The quick brown fox jumps over the lazy dog.",
+            expected: "It is a pangram." },
+
+        { input: "Sphinx of black quartz, judge my vow.",
+            expected: "It is a pangram." },
+
+        { input: "Hello, World!",
+            expected: "It is NOT a pangram." },
+
+        { input: "Pack my box with five dozen liquor jugs.",
+            expected: "It is a pangram." },
+
+        { input: "abcdefghijklmnopqrstuvwxyz",
+            expected: "It is a pangram." },
+            
+        { input: "Missing letters abcdefghijklmnopqrstuvwxy",
+            expected: "It is NOT a pangram." }
     ];
 
     testCases.forEach((test, index) => {
         const result = isPangram(test.input);
-        console.log(`Test ${index + 1}: ${result} | Expected: ${test.expected}`);
-        console.log(result === test.expected ? "Passed" : "Failed");
+        console.log(`Test ${index + 1} Input: "${test.input}"`);
+        console.log(`Expected: ${test.expected}   |   Result: ${result}`);
+        console.log(result === test.expected ? "PASSED" : "FAILED");
+        console.log();
     });
 }
 
