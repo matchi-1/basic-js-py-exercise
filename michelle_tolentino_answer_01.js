@@ -22,7 +22,7 @@ function isPangram(sentence) {
 
     }
 
-    // if the Set contains all 26 letters, it's a pangram
+    // if the set contains all 26 letters, it's a pangram
     return alphabet.size === 26 ? "It is a pangram." : "It is NOT a pangram.";
 }
 
@@ -43,7 +43,7 @@ function runTests() {
 
         { input: "abcdefghijklmnopqrstuvwxyz",
             expected: "It is a pangram." },
-            
+
         { input: "Missing letters abcdefghijklmnopqrstuvwxy",
             expected: "It is NOT a pangram." }
     ];
