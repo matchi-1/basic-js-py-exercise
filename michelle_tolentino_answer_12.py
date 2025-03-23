@@ -9,8 +9,8 @@
 import re
 
 def extract_digit_words():
-    text = input("Enter a sentence: ")  #
-    numbers = re.findall(r'\b\d+\b', text)
+    text = input("Enter a sentence: ")  
+    numbers = re.findall(r'\b\d+\b', text)  # find all occurrences of numbers (whole numbers (digits) only) in the text
     print(numbers) 
 
 extract_digit_words()
