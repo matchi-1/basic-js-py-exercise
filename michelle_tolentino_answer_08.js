@@ -14,10 +14,14 @@
     Revised Charter of the City of Manila," on June 18, 1949.[2]
 */
 
+
 function replaceIndexWithNumbers(text) {
     let count = 0;
     return text.replace(/\[index\]/g, () => `[${++count}]`);
+    // use global regex pattern to find all "[index]" occurrences
+    // each occurrence is replaced with a sequential number inside brackets
 }
+
 
 // test cases
 function runTests() {
