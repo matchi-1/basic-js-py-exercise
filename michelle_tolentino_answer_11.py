@@ -3,7 +3,7 @@
 #  For example, calling format_number(1000000) should return "1,000,000".
 
 def format_number(n):
-    return f"{n:,}"  # built-in string formatting to insert commas as thousand separators
+    return f"{n:,}"  # built-in string formatting to insert commas as thousand separators -- only works for numbers
 
 # test cases
 test_cases = [

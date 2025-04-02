@@ -16,7 +16,11 @@ function isPangram(sentence) {
     let alphabet = new Set();
     // check if the character is a letter (case insensitive)
     for (let i = 0; i < sentence.length; i++) {
-        if (sentence[i].match(/[a-z]/i)) { 
+        if (sentence[i].match(/[a-z]/i)) {   
+            //   / and / indicate delimiters for a regular expression
+            //   [a-z] any letter
+            //   i flag for case insensitivity
+            //   O(1), can ba [a-zA-z] too
             alphabet.add(sentence[i].toLowerCase()); // convert to lowercase and add to set
         }
 
@@ -27,7 +31,7 @@ function isPangram(sentence) {
 }
 
 // test cases
-function runTests() {
+function runTests() {  // array of objs -- properties (inp, exp)
     const testCases = [
         { input: "The quick brown fox jumps over the lazy dog.",
             expected: "It is a pangram." },
@@ -48,7 +52,7 @@ function runTests() {
             expected: "It is NOT a pangram." }
     ];
 
-    testCases.forEach((test, index) => {
+    testCases.forEach((test, index) => { // loop thru each (test case, index)
         const result = isPangram(test.input);
         console.log(`Test ${index + 1} Input: "${test.input}"`);
         console.log(`Expected: ${test.expected}   |   Result: ${result}`);

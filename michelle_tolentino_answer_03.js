@@ -26,15 +26,20 @@ function convertToJapaneseEra(year) {
     ];
 
     let matchingEras = eras
-        .filter(era => year >= era.startYear && year <= era.endYear)   // check range (inclusive)
+        // filter method == returns an array (since a pair is possible) of those that satisfy a condition
+        // O(n) for each element, it does a callback O(1) to check for condiition
+        .filter(era => year >= era.startYear && year <= era.endYear) 
+        // map method == creates new array and transforms the elements of the input array's elements thru callbacks
+        // maximum of O(2) constant time since max 2 returns from filter. just formats the return array obj to a string [era name, year]
         .map(era => `${era.name} ${year - era.startYear + 1}`);        // subtract input year to era's start year & add 1 to get the era year
 
     /*  
         - if the year overlaps two eras, return both separated by " / "    
-        - else if the year is not within the range of any era (array is empty), return msg that it is before the Taisho era
+        - else if the year is not within the range of any era (array is e mpty), return msg that it is before the Taisho era
         - else it will return the single era
     */
 
+    // if elems > 0, join them with /, returns a string
     return matchingEras.length > 0 ? matchingEras.join(' / ') : "Year is before the Japanese Taisho era (1912)";
 }
 

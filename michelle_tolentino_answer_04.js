@@ -14,9 +14,18 @@
 
 function extractLastDate(text) {
     // regex match: <Month> <Day>, <Year>   |   also match full and abbreviated month names
+    // '\b' word boundary   \b <Month> <Day>, <Year> \b
+    // '(?:)?' non-capturing group == use of optional parts like uary in January
+    // | or
+    // '\s*'   Matches optional spaces in between <Month> <Day>, <Year>
+    // \d{1,2}: Matches 1 or 2 digits for the day (e.g., 3, 13).
+    // , match actual comma
+    // \s*\d{1,2},\s*\d{4}\b/gi;
+    // \d{4}  match 4 digits for year
+    // / gi  == global and case insenstive
     const dateRegex = /\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s*\d{1,2},\s*\d{4}\b/gi;
     
-    // find matches
+    // find matches in regex. bc it uses g, it returns an array of all the match
     const matches = text.match(dateRegex);
     
     // return last found date or an empty string if no match exists   |    normalize spaces before returning

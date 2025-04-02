@@ -17,9 +17,9 @@
 
 function replaceIndexWithNumbers(text) {
     let count = 0;
+    // replace all occurrence per [  index  ] with a function in the second argument
+    // bc the 2nd arg is used as a static value and not dynamic. so to evaluate ++count sequentially we use ()=>
     return text.replace(/\[index\]/g, () => `[${++count}]`);
-    // use global regex pattern to find all "[index]" occurrences
-    // each occurrence is replaced with a sequential number inside brackets
 }
 
 

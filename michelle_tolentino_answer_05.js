@@ -28,13 +28,20 @@ function transformDateFormat(dateStr) {
     };
 
     // regex: match both full and abbreviated month formats
+    // / regex / delims
+    // (\d{1,2}), (\d{4})  check if <Month>   day with 1 or 2 digits   ,  year with 4 digits 
     const match = dateStr.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December) (\d{1,2}), (\d{4})/);
 
     if (!match) return ""; // return empty string if format is invalid
-
+    
+    // array destructuring -- unpack from arrays/objs into distinct variables
+    // gets the indiv returned string from the capture groups (those inside parentheses) 
     const [_, month, day, year] = match; // extract matched parts
-    const formattedDay = day.padStart(2, "0"); // two-digit day
 
+    // using the day variable, i make sure that it uses 2 digits
+    // padStart(targetLength, padString)
+    const formattedDay = day.padStart(2, "0"); // two-digit day
+    
     return `${year}-${monthMap[month]}-${formattedDay}`;
 }
 

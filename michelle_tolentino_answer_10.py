@@ -6,6 +6,9 @@
 # which is the string of zeros and ones. Your function should return the number described above
 
 def consecutive_zeros(binary_string):
+    # inside map, split the numbers by 1, so it returns a list of strings per split
+    # apply len inside map to just get the length of each string per element
+    # max() function returns the largest value from the list of lengths
     return max(map(len, binary_string.split('1')))  # split by '1', find the longest sequence of '0'
 
 # test cases

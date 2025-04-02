@@ -3,9 +3,17 @@ import re
 def extract_company(email):
     # regex: match "username@company.com"
     # allows letters, numbers, dots, and underscores in username
+
+    # ^ should start match at the beginning of the string
+    # [a-zA-Z0-9._] match upper, lower case letters, digits, numbers, periods, _ -- one or more allowed, not zero
+    # @ match
+    # company name letters
+    # \.com
+    # $ end of string
     match = re.match(r"^[a-zA-Z0-9._]+@([a-zA-Z]+)\.com$", email)
     
     # return the captured company name if there's a match, otherwise return None
+    # extracts the first capture group
     return match.group(1) if match else None
 
 # test cases

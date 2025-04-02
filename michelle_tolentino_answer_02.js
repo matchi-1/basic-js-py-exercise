@@ -15,7 +15,7 @@
 */
 
 function convertThaiToGregorian(thaiYear) {
-    return thaiYear - 543;
+    return thaiYear - 543;  // just subtract 543 from the input, tho i shouldve checked the type first
 }
 
 // test cases

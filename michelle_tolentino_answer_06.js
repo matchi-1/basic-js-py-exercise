@@ -11,15 +11,26 @@
 */
 
 function generateDateList(endDate) {
+    // make an empty array to store dates
     const dates = [];
+    // converted into a JavaScript Date object using new Date(endDate). allows the function to manipulate the date programmatically
     const date = new Date(endDate); // convert input string to Date object
 
+    // to generate 5 days, start with subtracting 4 days from the date to none
     for (let i = 4; i >= 0; i--) {
+        // create Date object
         const newDate = new Date(date);
+        // getDate -- returns the day of the month
+        // setDate -- sets the date to the date object which should be valid, 
+        // if negative answer or greater than the days of current month, it automatically adjusts
         newDate.setDate(date.getDate() - i); // subtract days from endDate
  
         // format as YYYY-MM-DD
+        // .toISOString() converts the Date object to a string in the ISO 8601 format which is 'YYYY-MM-DDTHH:mm:ss.sssZ'
+        // there is a T separator in the ISO format to separate time and date, and [0] is used to get the date string
         const formattedDate = newDate.toISOString().split("T")[0];
+
+        // add to array
         dates.push(formattedDate);
     }
 

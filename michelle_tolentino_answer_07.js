@@ -13,6 +13,11 @@
 
 function extractNumbers(sentence) {
     // regex: match integers and decimals and negative numbers
+
+    // -?  optional negative number
+    // \d+: This matches one or more digits (0-9) -- match whole number
+    // group match decimals  \. -- decimal point  \d+ one or more digits
+    // g global search
     const numberPattern = /-?\d+(\.\d+)?/g;
     return sentence.match(numberPattern) || []; // return matches or empty array if none found
 }
